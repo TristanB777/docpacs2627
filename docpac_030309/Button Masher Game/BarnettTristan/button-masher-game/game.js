@@ -9,8 +9,8 @@ const scoreboard = document.getElementById('scoreboard');
 const directions = ["Up", "Right", "Down", "Left"];
 const controller = document.getElementById('controllerStatus');
 
-direction = Math.floor(Math.random() * 4);
-directionBox.textContent = directions[direction]
+directionNum = Math.floor(Math.random() * 4);
+directionBox.textContent = directions[directionNum]
 
 window.addEventListener("gamepadconnected", (e) => {
     controller.textContent = "Controller connected press A to start"
@@ -40,8 +40,7 @@ function loop() {
     if (stickY < -0.1 && stickX) {
         stickdir = directions[0]
     }
-    if (stickX && stickY < 0.1 && > -0.1)
-    if (hitLastFrame == false && aButton == true) {
+    if (hitLastFrame == false && aButton == true && stickdir == direction) {
         if (time > 0) {
             score += 1
             hitLastFrame = true
@@ -66,7 +65,8 @@ setInterval(function timer() {
 
 setInterval(function directionDecide() {
     if (time > 0) {
-        direction = Math.floor(Math.random() * 4);
-        directionBox.textContent = directions[direction]
+        directionNum = Math.floor(Math.random() * 4);
+        direction = directions[directionNum]
+        directionBox.textContent = directions[directionNum]
     }
 }, 2000)
