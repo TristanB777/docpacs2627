@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <title>
+        form
+    </title>
+</head>
+<body>
+    <form id="formThingy" action="/form" method="POST">
+        <label for="studentName">
+            Name:
+            <input
+                type="text"
+                id="studentName"
+                name="studentName" 
+                required
+            >
+        </label>
+        <label for="email">
+            email:
+            <input
+                type="email"
+                id="email"
+                name="Email"
+                required
+            >
+        </label>
+        <label for="teamSize">
+            Team size:
+            <input
+                type="number"
+                max="4"
+                min="1"
+            >    
+        </label>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
