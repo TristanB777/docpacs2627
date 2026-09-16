@@ -12,7 +12,6 @@ const server = http.createServer((req,res) => {
     if (req.url == '/form') {
             if (req.method === "POST") {
                 let body = ''
-
             }
             else if (req.method === "GET") {
                 fs.readFile('pages/form.html', 'utf8', (err, data) => {
