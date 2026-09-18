@@ -52,7 +52,7 @@ const server = http.createServer((req,res) => {
             searchParams = qrl.searchParams.get('message')
             if (searchParams == '') {
                 res.writeHead(400, {'Content-Type': 'text/plain'})
-                res.end("the query is empty")
+                res.end("the query is empty please put a value within the query")
             }
             else {
                 res.end(searchParams);
