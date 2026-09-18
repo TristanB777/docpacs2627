@@ -2,6 +2,7 @@ const http = require('http');
 require('dotenv').config()
 const fs = require('fs');
 const PORT = Number(process.env.PORT);
+const {parse} = require('querystring');
 let url = require('url');
 const { basename } = require('path');
 baseUrl = "http://localhost:5000"
@@ -16,6 +17,15 @@ const server = http.createServer((req,res) => {
     if (qrl.pathname == '/form') {
             if (req.method === "POST") {
                 let body = ''
+                req.on('data', chunk => {
+                    body += chunk.toString();
+                });
+                req.on('end', () =>{
+                    console.log(
+                        parse(body)
+                    );
+                    res.end('data sent');
+                });
             }
             else if (req.method === "GET") {
                 fs.readFile('pages/form.html', 'utf8', (err, data) => {
@@ -35,10 +45,14 @@ const server = http.createServer((req,res) => {
 
     if (qrl.pathname == '/query') {
         res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.end("Arson\n");
         if  (req.method === 'GET') {
             searchParams = qrl.searchParams.get('message')
-            console.log(searchParams);
+            if (searchParams == '') {
+                res.end("the query is empty")
+            }
+            else {
+                res.end(searchParams);
+            }
         }
     }
 });
