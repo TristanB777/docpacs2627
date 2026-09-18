@@ -26,6 +26,9 @@ const server = http.createServer((req,res) => {
                     );
                     res.end('data sent');
                 });
+                if (body == false || '') {
+                    
+                }
             }
             else if (req.method === "GET") {
                 fs.readFile('pages/form.html', 'utf8', (err, data) => {
@@ -48,6 +51,7 @@ const server = http.createServer((req,res) => {
         if  (req.method === 'GET') {
             searchParams = qrl.searchParams.get('message')
             if (searchParams == '') {
+                res.writeHead(400, {'Content-Type': 'text/plain'})
                 res.end("the query is empty")
             }
             else {
