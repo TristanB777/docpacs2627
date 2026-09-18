@@ -4,17 +4,15 @@ const fs = require('fs');
 const PORT = Number(process.env.PORT);
 let url = require('url');
 const { basename } = require('path');
-baseUrl = "http://localhost:5000";
-query = "/query";
+baseUrl = "http://localhost:5000"
 
 const server = http.createServer((req,res) => {
-    let qrl = new URL (req.url, baseUrl)
     if (req.url == '/') {
         res.writeHead(200, {'Content-Type': 'text/plain'});
         res.end("hello world!\n");
         
     }
-    if (qrl.pathname == '/form') {
+    if (req.url == '/form') {
             if (req.method === "POST") {
                 let body = ''
             }
@@ -33,14 +31,10 @@ const server = http.createServer((req,res) => {
             }
         
     }
-    if (qrl.pathname == '/query') {
-        res.writeHead(200, {'Content-Type': 'text/plain'});
-        res.end("Arson\n");
-        if  (req.method === 'GET') {
-            searchParams = qrl.searchParams.get('message')
-            console.log(searchParams);
-        }  
+    if (req.method === 'GET') {
+        if
     }
+
 });
 
 server.listen(PORT, 'localhost', () => {
