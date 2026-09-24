@@ -44,6 +44,7 @@ function loop() {
         if (time > 0) {
             score += 1
             hitLastFrame = true
+            scoreboard.textContent = "score:"+score;
         }
     }
 
