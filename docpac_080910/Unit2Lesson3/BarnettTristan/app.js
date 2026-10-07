@@ -2,10 +2,12 @@ require('dotenv').config()
 const PORT = Number(process.env.PORT);
 const express = require('express')
 const path = require('path')
+const {logger} = require('./utils/requestLogger.js')
 const app = express();
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'));
+app.use(logger);
 
 
 app.get("/", (req, res) => {
