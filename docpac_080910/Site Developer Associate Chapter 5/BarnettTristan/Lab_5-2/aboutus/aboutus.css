@@ -105,6 +105,11 @@ margin-left: auto;
 margin-right: auto;
 }
 
+.blue
+{
+    background-color: rgb(92, 163, 221);
+}
+
 td
 {
 padding:5px;
