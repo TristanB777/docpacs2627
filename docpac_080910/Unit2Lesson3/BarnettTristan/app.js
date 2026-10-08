@@ -31,7 +31,6 @@ app.post("/form", (req, res) => {
 
 app.get("/query", (req, res) => {
     if (req.query.message != '') {
-        console.log(req.query.message);
         res.send(req.query.message)
     }
     if (req.query.message == '') {
@@ -61,6 +60,7 @@ app.use((req, res, next) => {
         status: 'fail',
         message: `can't find ${req.originalUrl} on this server!`
     });
+    next()
 });
 
 app.listen(PORT, 'localhost', () =>{
