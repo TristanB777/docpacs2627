@@ -1,6 +1,7 @@
 require('dotenv').config()
 const PORT = Number(process.env.PORT);
 const express = require('express')
+const ejs = require('ejs')
 const {logger} = require('./utils/requestLogger.js')
 
 //contain controller logic
@@ -14,7 +15,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'));
 app.use(logger);
-
+app.set('view engine', 'ejs')
 
 app.use(pageRoute);
 app.use(formRoute);
