@@ -21,15 +21,14 @@ app.use(parameterRoute);
 
 app.all(`*path`, (req, res) => {
     res.status(404).render('error', {
-        title: error,
+        title: 'error',
         message: `can't find that on this server!`,
         code: res.statusCode,
         href: '/',
         navs: [{ 'href': '/', 'text': "home" },
                { "href": '/form', "text": 'form' }]
-    });
-    next()
-});
+    })
+})
 
 app.listen(PORT, 'localhost', () =>{
     console.log(`server running at http://localhost:${PORT}/`);
