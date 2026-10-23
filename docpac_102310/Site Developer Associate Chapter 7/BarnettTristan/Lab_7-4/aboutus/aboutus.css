@@ -98,6 +98,13 @@ margin-left: auto;
 margin-right: auto;
 }
 
+audio.center 
+{
+display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
 footer
 {
 width: 600px;
