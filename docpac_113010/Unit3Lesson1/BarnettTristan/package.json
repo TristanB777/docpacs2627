@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
       "start": "node app.js",
-      "test": "node --test"
+      "init-db": "node ./scripts/initDb.js"
   },
   "author": "",
   "license": "ISC",
