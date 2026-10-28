@@ -2,9 +2,7 @@ const Database = require('better-sqlite3');
 const {db} =  require('../models/database.js');
 
 const insert = db.prepare (`INSERT INTO entries (value, source, time) VALUES (?,?,?)`)
-const insertMany = db.transaction((things) => {
-for (const thing in things) insert.run(thing.name, thing.value)});
 
-const rows = db.prepare(`SELECT * FROM app.db id = ?`).get(studentId);
+const rows = db.prepare(`SELECT * FROM entries`).all();
 
-module.exports = {insert, insertmany, rows}
+module.exports = {insert, rows}
