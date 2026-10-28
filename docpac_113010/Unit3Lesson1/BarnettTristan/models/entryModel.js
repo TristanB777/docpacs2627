@@ -5,6 +5,6 @@ const insert = db.prepare (`INSERT INTO entries (value, source, time) VALUES (?,
 const insertMany = db.transaction((things) => {
 for (const thing in things) insert.run(thing.name, thing.value)});
 
-const rows = db.prepare(`SELECT * FROM app.db`).all();
+const rows = db.prepare(`SELECT * FROM app.db id = ?`).get(studentId);
 
 module.exports = {insert, insertmany, rows}
