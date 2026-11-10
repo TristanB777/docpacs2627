@@ -8,6 +8,7 @@ const what = `CREATE TABLE IF NOT EXISTS schema_migrations (
     time DATETIME DEFAULT CURRENT_TIMESTAMP);`
 
 db3.exec(what);
+
 console.log('should have a the MigrationDb');
 
 db3.close();
