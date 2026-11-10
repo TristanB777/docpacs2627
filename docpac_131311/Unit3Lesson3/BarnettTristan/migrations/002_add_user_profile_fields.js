@@ -1,0 +1,1 @@
+`SELECT id FROM schema_migrations WHERE migration_name ='001_create_users_table'`
