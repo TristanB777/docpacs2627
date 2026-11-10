@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@blackglory/better-sqlite3-migrations": "^0.2.3",
     "better-sqlite3": "^11.10.0",
     "better-sqlite3-session-store": "^0.1.0",
     "body-parser": "^2.3.0",
