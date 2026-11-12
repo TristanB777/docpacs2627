@@ -8,6 +8,4 @@ const user = `CREATE TABLE IF NOT EXISTS users (
 
 db.exec(user);
 
-db.close();
-
 module.exports = {user}
