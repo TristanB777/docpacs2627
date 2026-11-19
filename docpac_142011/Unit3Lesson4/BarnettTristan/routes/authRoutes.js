@@ -1,5 +1,6 @@
 const {findByName, findByEmail, findById, create} = require('../models/userModel.js')
-const formRoute = express.Router()
+const express = require("express");
+const authRoute = express.Router()
 authRoute.get(`/register`, (req, res) => {
     res.render('register', {
         title: "sign up",
@@ -7,18 +8,15 @@ authRoute.get(`/register`, (req, res) => {
 })
 
 authRoute.post(`/register`, (req, res) => {
-    var password = document.getElementById('password');
-    var passwordCon = document.getElementById('passwordCon');
-    function vaildatePassword(){
-        if(password.value != passwordCon.value) {
-            passwordCon.setCustomValidity("Passwords Don't Match");
-        }
-        else {
-            passwordCon.setCustomValidity('');
-        }
+    var username = req.body.username
+    var email = req.body.email
+    var password = req.body.password
+    var passwordCon = req.body.passwordCon
+    if(password !== passwordCon) {
+        res.render('register', {title: 'both passwords have to match'});
     }
-    password.onchange = vaildatePassword;
-    passwordCon.onkeyup = vaildatePassword;
+    create.run(username, email, password)
+    res.redirect(`/login`)
 })
 
 authRoute.get(`/login`, (req, res) => {

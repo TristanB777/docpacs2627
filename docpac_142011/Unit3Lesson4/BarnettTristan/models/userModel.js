@@ -19,8 +19,7 @@ const { db } = require("./database");
         return user;
     }
     // create user
-    function create(userName, userEmail, userPass) {
-        const create = db.prepare(`INSERT INTO users (userName, userEmail, userPass)`)
-    }
+    const create = db.prepare(`INSERT INTO users (userName, Email, password) VALUES (?,?,?)`)
+
 
 module.exports = {findByName, findByEmail, findById, create}
